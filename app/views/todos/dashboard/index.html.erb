@@ -1,1 +1,49 @@
-  <h1>Welcome to an example Dashboard for todos</h1>
+<section id="todoapp"></section>
+<footer id="info">
+  <p>Double-click to edit a todo</p>
+  <p>
+    Created by
+    <a href="http://github.com/tomdale">Tom Dale</a>,
+    <a href="http://github.com/addyosmani">Addy Osmani</a>
+  </p>
+  <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
+<!-- /* Handlebars templates start */ -->
+<script id="statsTemplate" type="text/x-handlebars">
+  {{#with view}}
+    {{#if oneLeft }}
+      <strong>{{entries.remaining}}</strong> item left
+    {{else}}
+      <strong>{{entries.remaining}}</strong> items left
+    {{/if}}
+  {{/with}}
+</script>
+<script id="filtersTemplate" type="text/x-handlebars">
+  <ul id="filters">
+    <li>
+      <a {{action showAll href=true}} {{bindAttr class="view.isAll:selected"}}>All</a>
+    </li>
+    <li>
+      <a {{action showActive href=true}} {{bindAttr class="view.isActive:selected"}}>Active</a>
+    </li>
+    <li>
+      <a {{action showCompleted href=true}} {{bindAttr class="view.isCompleted:selected"}}>Completed</a>
+    </li>
+  </ul>
+</script>
+<script id="clearBtnTemplate" type="text/x-handlebars">
+  {{#with view}}
+    <button {{action "clearCompleted" target="entries"}} {{bindAttr class="buttonClass:hidden"}} >
+      Clear completed ({{entries.completed}})
+    </button>
+  {{/with}}
+</script>
+<script id="todosTemplate" type="text/x-handlebars">
+  {{#unless view.content.editing}}
+    {{view Ember.Checkbox checkedBinding="view.content.completed" class="toggle"}}
+    <label>{{view.content.title}}</label>
+    <button {{action removeItem target="this"}} class="destroy" ></button>
+  {{else}}
+    {{view view.ItemEditorView contentBinding="view.content"}}
+  {{/unless}}
+</script>

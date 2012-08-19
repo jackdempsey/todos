@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
   <title>Todos</title>
   <%= stylesheet_link_tag    "todos/application", :media => "all" %>
   <%= javascript_include_tag "todos/application" %>
   <%= csrf_meta_tags %>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <%= stylesheet_link_tag    "todos/app.css", :media => "all" %>
+  <%= stylesheet_link_tag    "todos/base.css", :media => "all" %>
+  <!--[if IE]>
+  <script src="../../assets/ie.js"></script>
+  <![endif]-->
 </head>
+
+
 <body>
+  <%= yield %>
 
-<%= yield %>
+  <!-- /* Handlebars templates end */ -->
+  <script src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta6/handlebars.min.js'></script>
 
+  <%= javascript_include_tag "todos/ember-latest" %>
+  <%= javascript_include_tag "todos/todo_app" %>
 </body>
 </html>
+
