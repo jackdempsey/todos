@@ -3,7 +3,6 @@
 <head>
   <title>Todos</title>
   <%= stylesheet_link_tag    "todos/application", :media => "all" %>
-  <%= javascript_include_tag "todos/application" %>
   <%= csrf_meta_tags %>
 
 
@@ -19,10 +18,11 @@
   <%= yield %>
 
   <!-- /* Handlebars templates end */ -->
-  <script src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta6/handlebars.min.js'></script>
 
-  <%= javascript_include_tag "todos/ember-latest" %>
+  <%= javascript_include_tag "todos/application" %>
+  <%-#= javascript_include_tag "todos/todo_app/templates/all" %>
+  <%-#= javascript_include_tag "todos/ember-latest" %>
   <%= javascript_include_tag "todos/todo_app" %>
 </body>
 </html>
